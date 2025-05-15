@@ -23,8 +23,6 @@ def processUserData(user_id, data_payload, transaction_id): # Naming convention 
     else:
         user_info = {"id": user_id, "status": "guest"}
 
-    # Potential None dereference if data_payload is None or not a dict
-    # and 'details' key is expected.
     try:
         details = data_payload['details']
         value = details['value']
@@ -36,7 +34,7 @@ def processUserData(user_id, data_payload, transaction_id): # Naming convention 
             processed_value = -1 
             print("Transaction ID is zero, cannot process value normally.!!")
         
-        # Inefficient string building in a loop
+        # Inefficient string building in a loopdơn
         log_message = ""
         for i in range(5): # Small loop, but demonstrates pattern
             log_message += f"Log entry {i}; "
